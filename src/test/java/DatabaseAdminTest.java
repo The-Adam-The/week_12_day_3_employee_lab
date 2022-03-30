@@ -19,6 +19,18 @@ public class DatabaseAdminTest {
     }
 
     @Test
+    public void canSetName(){
+        databaseAdmin.setName("Gavin");
+        assertEquals("Gavin", databaseAdmin.getName());
+    }
+
+    @Test
+    public void cannotSetName(){
+        databaseAdmin.setName(null);
+        assertEquals("Lawrence", databaseAdmin.getName());
+    }
+
+    @Test
     public void canGetniNumber() {
         assertEquals("DB46784002q", databaseAdmin.getNiNumber());
     }
@@ -32,6 +44,12 @@ public class DatabaseAdminTest {
     public void canRaiseSalary() {
         databaseAdmin.raiseSalary(4000);
         assertEquals(33000.50, databaseAdmin.getSalary(), 0.01);
+    }
+
+    @Test
+    public void cannotRaiseSalary(){
+        databaseAdmin.raiseSalary(-1000);
+        assertEquals(29000.50, databaseAdmin.getSalary(), 0.01);
     }
 
     @Test
